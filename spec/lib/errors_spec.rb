@@ -15,13 +15,4 @@ RSpec.describe Errors do
       expect(response).to eq(expected_response)
     end
   end
-
-  describe "#model_error" do
-    it "Should return a hash" do
-      response = subject.model_error(status, message, { error: "algo falllaa" })
-      expected_response = { message: status, model: message, extra: { error: "algo falllaa" } }
-
-      expect(response).to eq(expected_response)
-    end
-  end
 end

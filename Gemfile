@@ -17,6 +17,9 @@ gem 'dry-auto_inject'
 # Enviroment variales
 gem "figaro"
 
+# Serializers
+gem 'active_model_serializers', '~> 0.10.2'
+
 group :development, :test do
   gem 'faker', '~> 1.6', '>= 1.6.6'
   gem 'factory_bot_rails'

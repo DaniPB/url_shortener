@@ -54,7 +54,7 @@ RSpec.describe Links::Create::Execute do
 
         expected_response = {
           :message=>"Creation failed",
-          :model=>Link,
+          :location=>Links::Create::Do,
           :extra=>{:address=>["is invalid"]}
         }
 
@@ -70,7 +70,7 @@ RSpec.describe Links::Create::Execute do
 
         expected_response = {
           :message=>"Creation failed",
-          :model=>Link,
+          :location=>Links::Create::Do,
           :extra=>{:shortcut=>["has already been taken"]}
         }
 

@@ -42,7 +42,7 @@ class Links::Create::Do
     else
       errors = link.errors.messages
 
-      Failure Errors.model_error("Creation failed", Link, errors)
+      Failure Errors.general_error("Creation failed", self.class, errors)
     end
   end
 
