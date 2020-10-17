@@ -17,6 +17,9 @@ gem 'dry-auto_inject'
 # Enviroment variales
 gem "figaro"
 
+# Sidekiq
+gem 'sidekiq'
+
 # Serializers
 gem 'active_model_serializers', '~> 0.10.2'
 
@@ -25,6 +28,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 4.0.1'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-sidekiq'
 end
 
 group :development do

@@ -39,3 +39,8 @@ RSpec.configure do |config|
 
   config.filter_rails_from_backtrace!
 end
+
+require 'sidekiq/testing'
+RSpec::Sidekiq.configure do |config|
+  config.warn_when_jobs_not_processed_by_sidekiq = false
+end

@@ -22,3 +22,24 @@ services:
       - ./tmp/db:/var/lib/postgresql/data
     environment:
       - POSTGRES_PASSWORD=postgres
+
+  redis:
+    image: redis
+    volumes:
+      - redis_data:/data
+
+  sidekiq:
+    tty: true
+    stdin_open: true
+    build: .
+    command: bundle exec sidekiq
+    volumes:
+      - .:/url_shortener
+    depends_on:
+      - redis
+    environment:
+      - REDIS_URL_SIDEKIQ=redis://redis:6379/12
+
+volumes:
+  redis_data:
+    driver: local
