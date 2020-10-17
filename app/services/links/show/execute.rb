@@ -29,6 +29,10 @@ class Links::Show::Execute
     link = Link.find_by(shortcut: shortcut)
 
     if link.present?
+      visits = link.visits += 1
+
+      link.update(visits: visits)
+
       Success(link: link)
     else
       Failure Errors.general_error("Link #{shortcut} not found", self.class)

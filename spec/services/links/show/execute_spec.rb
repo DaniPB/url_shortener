@@ -9,14 +9,18 @@ RSpec.describe Links::Show::Execute do
 
     context "Link exists" do
       it "Should return the Link" do
-        link = create(:link, shortcut: "happy")
+        link = create(:link, shortcut: "happy", visits: 2)
 
         expected_response = {
           link: link
         }
 
         expect(response).to be_success
+
+        link.reload
+
         expect(response.success).to eq(expected_response)
+        expect(link.visits).to eq(3)
       end
     end
 
