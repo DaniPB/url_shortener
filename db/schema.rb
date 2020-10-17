@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2020_10_17_024838) do
 
   create_table "links", force: :cascade do |t|
     t.string "address"
-    t.string "short"
+    t.string "shortcut"
     t.integer "visits", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

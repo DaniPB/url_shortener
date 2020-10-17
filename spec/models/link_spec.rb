@@ -2,11 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Link, type: :model do
   it "is not valid with missing fields" do
-    link = build(:link, address: nil, short: nil, visits: nil)
+    link = build(:link, address: nil, shortcut: nil, visits: nil)
 
     expected_messages = {
       :address=>["can't be blank", "is invalid"],
-      :short=>["can't be blank"],
+      :shortcut=>["can't be blank"],
       :visits=>["can't be blank"]
     }
 
@@ -14,12 +14,12 @@ RSpec.describe Link, type: :model do
     expect(link.errors.messages).to eq(expected_messages)
   end
 
-  it "is not valid, short already exists" do
-    create(:link, short: "H30ho32")
-    link = build(:link, short: "H30ho32")
+  it "is not valid, shortcut already exists" do
+    create(:link, shortcut: "H30ho32")
+    link = build(:link, shortcut: "H30ho32")
 
     expected_messages = {
-      :short=>["has already been taken"]
+      :shortcut=>["has already been taken"]
     }
 
     expect(link).to_not be_valid

@@ -1,5 +1,5 @@
 class Link < ApplicationRecord
-  validates :address, :short, :visits, presence: true
+  validates :address, :shortcut, :visits, presence: true
   validates :address, format: URI::regexp(%w[http https])
-  validates :short, uniqueness: true
+  validates :shortcut, uniqueness: true
 end
