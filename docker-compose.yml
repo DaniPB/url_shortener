@@ -1,8 +1,7 @@
 version: '3'
 services:
   web:
-    #image: danielapb/bowling_kata:1
-    build: .
+    image: danielapb/url_shortener:1
     command: bundle exec puma -p ${PORT:-8080}
     volumes:
       - .:/url_shortener
