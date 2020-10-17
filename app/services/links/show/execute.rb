@@ -7,7 +7,6 @@ class Links::Show::Execute
 
   def call(input)
     values = yield validate(input)
-    #link = yield create_link.(input)
     link = yield search_link(values)
 
     Success link
