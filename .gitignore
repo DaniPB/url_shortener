@@ -22,3 +22,8 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+/gems
+
+# Ignore db files
+/config/database.yml
