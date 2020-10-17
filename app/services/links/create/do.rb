@@ -47,7 +47,7 @@ class Links::Create::Do
   end
 
   def define_new_address(link_values)
-    address = "#{ENV["SERVER_URL"]}/#{link_values[:shortcut]}"
+    address = "#{ENV["SERVER_URL"]}/l/#{link_values[:shortcut]}"
 
     Success link_values.merge!(new_address: address)
   end

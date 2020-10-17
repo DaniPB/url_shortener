@@ -21,6 +21,16 @@ class LinksController < ApplicationController
     end
   end
 
+  def index
+    response = Links::Index::Execute.new.()
+
+    if response.success?
+      render json: response.success, each_serializer: LinkSerializer
+    else
+      render json: response.failure, status: :bad_request
+    end
+  end
+
   private
 
   def create_params
