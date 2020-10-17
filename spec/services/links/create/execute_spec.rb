@@ -14,14 +14,14 @@ RSpec.describe Links::Create::Execute do
 
         link = Link.last
 
-        expected_response = {
-          link: link
-        }
+        expected_response = { link: link }
+        new_address = "http://localhost:8080/#{input[:shortcut]}"
 
         expect(response.success).to eq(expected_response)
         expect(Link.count).to eq(1)
         expect(link.address).to eq(input[:address])
         expect(link.shortcut).to eq(input[:shortcut])
+        expect(link.new_address).to eq(new_address)
         expect(link.visits).to be_zero
       end
     end
@@ -36,14 +36,14 @@ RSpec.describe Links::Create::Execute do
 
         link = Link.last
 
-        expected_response = {
-          link: link
-        }
+        expected_response = { link: link }
+        new_address = "http://localhost:8080/RandomHa10"
 
         expect(response.success).to eq(expected_response)
         expect(Link.count).to eq(1)
         expect(link.address).to eq(input[:address])
         expect(link.shortcut).to eq("RandomHa10")
+        expect(link.new_address).to eq(new_address)
         expect(link.visits).to be_zero
       end
     end

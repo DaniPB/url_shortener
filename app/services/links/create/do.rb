@@ -7,6 +7,7 @@ class Links::Create::Do
 
   def call(input)
     values = yield define_shortcut(input)
+    final_values = yield define_new_address(input)
     link = yield create_link(values)
 
     Success link
@@ -43,5 +44,11 @@ class Links::Create::Do
 
       Failure Errors.model_error("Creation failed", Link, errors)
     end
+  end
+
+  def define_new_address(link_values)
+    address = "#{ENV["SERVER_URL"]}/#{link_values[:shortcut]}"
+
+    Success link_values.merge!(new_address: address)
   end
 end

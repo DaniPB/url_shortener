@@ -28,3 +28,6 @@
 
 # Ignore db files
 /config/database.yml
+
+# Ignore enviroment variables
+/config/application.yml

@@ -14,6 +14,9 @@ gem 'dry-validation'
 gem 'dry-monads'
 gem 'dry-auto_inject'
 
+# Enviroment variales
+gem "figaro"
+
 group :development, :test do
   gem 'faker', '~> 1.6', '>= 1.6.6'
   gem 'factory_bot_rails'
